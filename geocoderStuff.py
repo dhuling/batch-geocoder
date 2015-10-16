@@ -9,9 +9,9 @@ from geopy.geocoders import GoogleV3, Nominatim
 import csv, time
 
 #Geocode file is simply a list of addresses in CSV format.
-my_address_list = "" #path to input csv
+my_address_list = "add_list.csv" #path to input csv
 
-output = "" #path to output file
+output = "output.csv" #path to output file
 #empty containers we'll use later for comparing list items
 add_list = [] #empty address list
 rand_list = []
@@ -20,9 +20,10 @@ rand_list = []
 with open(my_address_list, 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
-        add_list.append(row[0] + ", " + row[1])
+        add_list.append(row[0])
 print add_list
 add_list.sort()
+print add_list
 #match is used to check if we've already geocoded the address
 match = []
 add = 0
